@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for object_list in object_lists  %}
+       <h1> <a href="{% url 'posts:detail' object_list.id %}">{{object_list.title}}</a></h1>
+    {% endfor %}
+{% endblock content %}

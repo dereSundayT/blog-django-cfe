@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-sm-6 col-sm-offest-3">
+    <h4>Title: {{obj.title}}</h4>
+    {{obj.content|linebreaks}}
+    {{request.build_absolute_uri}}
+</div>
+{% endblock content %}
+
