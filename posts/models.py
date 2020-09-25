@@ -3,10 +3,11 @@ from django.urls import reverse
 
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
-from django.contrib.admin.models import User
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Post(models.Model):
+    user = models.ForeignKey(User,blank=True,null=True,on_delete=models.CASCADE)
     title = models.CharField(max_length=120,null=True)
     slug = models.SlugField(unique=True)
     #image = models.FileField(null=True,blank=True)
@@ -16,6 +17,8 @@ class Post(models.Model):
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now=False,auto_now_add=True)
     updated = models.DateTimeField(auto_now=True,auto_now_add=False)
+    draft = models.BooleanField(default=False)
+    publish = models.DateTimeField(auto_now=False,auto_now_add=False)
 
     def __str__(self):
         return self.title

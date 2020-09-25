@@ -4,6 +4,9 @@
     <h4>Title: {{obj.title}}</h4>
     {{obj.content|linebreaks}}
     {{request.build_absolute_uri}}
+    {% if obj.user.get_full_name %}
+        <p>Author: {{obj.user.get_full_name}} </p>
+    {% endif %}
 </div>
 {% endblock content %}
 

@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_=a#l6cunv_d+g!g5vxn!=ocl3=(rverf7#hx3mgsd%s*ehx_%'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third party
+    'rest_framework',
+    # local apps
     'posts',
+
 ]
 
 MIDDLEWARE = [
@@ -119,4 +123,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS =[Path(BASE_DIR,'static')]
+STATICFILES_DIRS = [Path(BASE_DIR, 'static')]
